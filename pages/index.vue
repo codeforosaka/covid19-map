@@ -1,6 +1,7 @@
 <template>
   <div>
     <div id="map"></div>
+    <div id="title">大阪府ゴールドステッカーマップ</div>
   </div>
 </template>
 
@@ -44,7 +45,7 @@ export default {
       const response = this.$axios
         .$get(endpoint)
         .then(response => {
-          console.log("response data", response);
+          // console.log("response data", response);
           this.setMap(map, center, response);
         })
         .catch(error => {
@@ -97,7 +98,7 @@ export default {
       const response = this.$axios
         .$get(endpoint)
         .then(response => {
-          console.log("response data", response);
+          // console.log("response data", response);
           map.removeLayer("places");
           map.removeSource("places");
           map.addSource("places", {
@@ -140,5 +141,20 @@ body {
   max-height: 400px;
   font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
   overflow-y: scroll;
+}
+#title {
+  font: 24px/40px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  padding: 1px 10px 2px 10px;
+  z-index: 1;
+  border-radius: 20px;
+  border: 1px solid #00008e;
+  border-width: 3px;
+  max-width: 20%;
+  color: #00008e;
+  background-color: white;
 }
 </style>

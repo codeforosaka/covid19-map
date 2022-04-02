@@ -1,0 +1,25 @@
+{
+  "name": "covid-map",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "echo 'skip tests (there is no test)'",
+    "generate:deploy": "nuxt generate",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.12.1",
+    "@nuxtjs/axios": "^5.13.1",
+    "core-js": "^3.8.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mapbox-gl": "^2.1.1",
+    "nuxt": "^2.14.12"
+  },
+  "devDependencies": {}
+}

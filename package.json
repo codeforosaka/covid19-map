@@ -19,7 +19,8 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "mapbox-gl": "^2.1.1",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "pm2": "^5.2.0"
   },
   "devDependencies": {}
 }

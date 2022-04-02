@@ -143,7 +143,7 @@ body {
   overflow-y: scroll;
 }
 #title {
-  font: 24px/40px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font: 12px/24px "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 600;
   position: absolute;
   top: 10px;
@@ -153,7 +153,7 @@ body {
   border-radius: 20px;
   border: 1px solid #00008e;
   border-width: 3px;
-  max-width: 20%;
+  max-width: 80%;
   color: #00008e;
   background-color: white;
 }

@@ -55,6 +55,13 @@ export default {
     setMap(map, center, data) {
       var nav = new mapboxgl.NavigationControl();
       map.addControl(nav, "top-left");
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: { enableHighAccuracy: false },
+          trackUserLocation: true,
+          showUserLocation: true
+        })
+      );
       map.on("load", () => {
         map.addSource("places", {
           type: "geojson",
@@ -65,7 +72,7 @@ export default {
           type: "symbol",
           source: "places",
           layout: {
-            "icon-image": "restaurant-15",
+            "icon-image": "restaurant",
             "icon-allow-overlap": true
           }
         });

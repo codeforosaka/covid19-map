@@ -12,7 +12,7 @@ export default {
   ssr: "true", //or spa
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "covid-map",
+    title: "大阪府ゴールドステッカーマップ",
     htmlAttrs: {
       lang: "ja"
     },

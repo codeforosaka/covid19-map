@@ -25,12 +25,30 @@ app.get("/", (req, res) => {
       let places = [];
       const name = obj.properties.name;
       const address = obj.properties.address;
+      const type = obj.properties.type;
       const hp = obj.properties.hp;
-      let html = '<p class="longurl" break-all;">' + name + "<br>" + address;
+
+      let html = '<div class="store">';
+      html += '<div class="store_name">';
       if (hp != "") {
-        html += '<br>HP: <a href="' + hp + '" target="_blank">' + hp + "</a>";
+        html += '<a href="' + hp + '" target="_blank">' + name + "</a>";
+      } else {
+        html += name;
       }
-      html += "</p>";
+      html += "</div>";
+      html += '<div class="store_type">（' + type + "）</div>";
+      html += '<div class="store_address">' + address + "</div>";
+      form =
+        "https://docs.google.com/forms/d/e/1FAIpQLScPwznCAzo4m_zPhH0BnImMWZCTIc9CTpt3sUVV6RqG4BXUFw/viewform?usp=pp_url";
+      form += "&entry.1434788808=" + name;
+      form += "&entry.1439544210=" + name;
+      form += "&entry.1847664388=" + address;
+      form += "&entry.1110425882=" + address;
+      html +=
+        '<div class="store_form"><a href="' +
+        form +
+        '" target="_blank">店舗情報変更依頼</a></div>';
+      html += "</div>";
 
       geoJson.features.forEach(obj1 => {
         if (

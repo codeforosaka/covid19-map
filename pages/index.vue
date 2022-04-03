@@ -117,7 +117,7 @@ export default {
             type: "symbol",
             source: "places",
             layout: {
-              "icon-image": "restaurant-15",
+              "icon-image": "restaurant",
               "icon-allow-overlap": true
             }
           });

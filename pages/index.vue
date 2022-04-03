@@ -133,14 +133,28 @@ body {
   bottom: 0;
   width: 100%;
 }
-.longurl {
+.store {
   word-break: break-all;
+  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: #e7ebb3;
+  padding: 3px 10px 3px 10px;
+  margin: 3px 0px 3px 0px;
+  border-radius: 5px;
+}
+.store_name {
+  font-weight: 600;
+  border-bottom: solid 1px black;
+}
+.store_form {
+  text-align: right;
 }
 .mapboxgl-popup-content {
-  min-height: 200px;
+  min-height: 50px;
   max-height: 400px;
-  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  min-width: 100px;
+  max-width: 500px;
   overflow-y: scroll;
+  border-radius: 10px;
 }
 #title {
   font: 12px/24px "Helvetica Neue", Arial, Helvetica, sans-serif;

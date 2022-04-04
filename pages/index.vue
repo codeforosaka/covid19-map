@@ -24,11 +24,19 @@ export default {
     },
     getLngLat() {
       var vue = this;
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var lng = position.coords.longitude;
-        var lat = position.coords.latitude;
-        vue.createMap([lng, lat]);
-      });
+      // 初期値は大阪府庁
+      var lat = 34.6851596;
+      var lng = 135.5182102;
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          lng = position.coords.longitude;
+          lat = position.coords.latitude;
+          vue.createMap([lng, lat]);
+        },
+        function(error) {
+          vue.createMap([lng, lat]);
+        }
+      );
     },
     createMap(center) {
       mapboxgl.accessToken = this.access_token;

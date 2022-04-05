@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="map"></div>
-    <div id="title">大阪府ゴールドステッカーマップ</div>
+    <div id="title">大阪府感染防止認証ゴールドステッカーマップ</div>
   </div>
 </template>
 

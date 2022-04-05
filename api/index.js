@@ -44,6 +44,10 @@ app.get("/", (req, res) => {
       form += "&entry.1439544210=" + name;
       form += "&entry.1847664388=" + address;
       form += "&entry.1110425882=" + address;
+      if (hp != "") {
+        form += "&entry.527502142=" + hp;
+        form += "&entry.835276458=" + hp;
+      }
       html +=
         '<div class="store_form"><a href="' +
         form +

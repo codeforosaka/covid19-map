@@ -31,7 +31,11 @@ app.get("/", (req, res) => {
       let html = '<div class="store">';
       html += '<div class="store_name">';
       if (hp != "") {
-        html += '<a href="' + hp + '" target="_blank">' + name + "</a>";
+        let tmpHp = hp;
+        if (!hp.startsWith("http")) {
+          tmpHp = "http://" + hp;
+        }
+        html += '<a href="' + tmpHp + '" target="_blank">' + name + "</a>";
       } else {
         html += name;
       }

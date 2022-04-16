@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,15 +13,33 @@
   },
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.12.1",
+    "@nuxt/typescript-runtime": "^2.1.0",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/google-gtag": "^1.0.4",
+    "caniuse-lite": "^1.0.30001332",
     "core-js": "^3.8.3",
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "mapbox-gl": "^2.1.1",
     "nuxt": "^2.14.12",
-    "pm2": "^5.2.0"
+    "pm2": "^5.2.0",
+    "vue-class-component": "^7.2.6",
+    "vue-spinner": "^1.0.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@mdi/font": "^6.6.96",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-nuxt": "^3.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "node-sass": "^7.0.1",
+    "prettier": "^2.6.2",
+    "sass-loader": "10",
+    "vue-property-decorator": "^9.1.2"
+  }
 }

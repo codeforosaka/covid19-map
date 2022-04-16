@@ -24,6 +24,10 @@ Issue にある色々な修正にご協力いただけると嬉しいです。
 | npm     | 8.5.0      |
 | yarn    | 1.22.18    |
 
+### 開発環境
+
+develope に commit されると[開発環境](https://covid19-map-osaka.herokuapp.com/)にデプロイされます
+
 ### Mapbox
 
 地図部分は Mapbox を利用しています。

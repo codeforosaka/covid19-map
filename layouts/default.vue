@@ -1,3 +1,111 @@
 <template>
-  <nuxt />
+  <v-app class="app">
+    <div class="appContainer">
+      <div class="naviContainer"></div>
+      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+        <v-container class="px-4 py-8">
+          <nuxt />
+        </v-container>
+      </div>
+    </div>
+  </v-app>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+
+type LocalData = {
+  isOpenNavigation: boolean
+  loading: boolean
+}
+
+export default Vue.extend({
+  components: {},
+  data(): LocalData {
+    return {
+      isOpenNavigation: false,
+      loading: true
+    }
+  },
+  mounted() {
+    this.loading = false
+  },
+  methods: {
+    openNavigation(): void {
+      this.isOpenNavigation = true
+    },
+    hideNavigation(): void {
+      this.isOpenNavigation = false
+    }
+  }
+})
+</script>
+<style lang="scss">
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: inherit !important;
+}
+.appContainer {
+  position: relative;
+  @include largerThan($small) {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto;
+  }
+  @include largerThan($huge) {
+    grid-template-columns: 325px 1fr;
+    grid-template-rows: auto;
+  }
+}
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
+  }
+}
+@include largerThan($small) {
+  .naviContainer {
+    grid-column: 1/2;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    width: 240px;
+    height: 100%;
+  }
+}
+@include largerThan($huge) {
+  .naviContainer {
+    width: 325px;
+  }
+}
+.open {
+  height: 100vh;
+  @include largerThan($small) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+.mainContainer {
+  grid-column: 2/3;
+  overflow: hidden;
+  @include lessThan($small) {
+    .container {
+      padding-top: 16px !important;
+    }
+  }
+}
+.loader {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  img {
+    display: block;
+    margin: 0 auto 20px;
+  }
+}
+</style>

@@ -34,7 +34,7 @@ export default {
     return {
       access_token: process.env.TOKEN,
       map: {},
-      active: false
+      active: false,
     }
   },
   mounted() {
@@ -50,12 +50,12 @@ export default {
       var lat = 34.6851596
       var lng = 135.5182102
       navigator.geolocation.getCurrentPosition(
-        function(position) {
+        function (position) {
           lng = position.coords.longitude
           lat = position.coords.latitude
           vue.createMap([lng, lat])
         },
-        function(error) {
+        function (error) {
           vue.createMap([lng, lat])
         }
       )
@@ -66,7 +66,7 @@ export default {
         container: 'map',
         style: 'mapbox://styles/code4osaka/ckm3bbsyd0dqp17tgsq4mpbb1',
         zoom: 15,
-        center: center
+        center: center,
       })
       this.getData(this.map, center)
     },
@@ -74,11 +74,11 @@ export default {
       var endpoint = '/api?lat=' + center[1] + '&lng=' + center[0]
       const response = this.$axios
         .$get(endpoint)
-        .then(response => {
+        .then((response) => {
           // console.log("response data", response);
           this.setMap(map, center, response)
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('response error', error)
         })
     },
@@ -89,13 +89,13 @@ export default {
         new mapboxgl.GeolocateControl({
           positionOptions: { enableHighAccuracy: false },
           trackUserLocation: true,
-          showUserLocation: true
+          showUserLocation: true,
         })
       )
       map.on('load', () => {
         map.addSource('places', {
           type: 'geojson',
-          data: data
+          data: data,
         })
         map.addLayer({
           id: 'places',
@@ -103,25 +103,22 @@ export default {
           source: 'places',
           layout: {
             'icon-image': 'restaurant',
-            'icon-allow-overlap': true
-          }
+            'icon-allow-overlap': true,
+          },
         })
         new mapboxgl.Marker().setLngLat(center).addTo(map)
-        map.on('click', 'places', function(e) {
+        map.on('click', 'places', function (e) {
           var coordinates = e.features[0].geometry.coordinates.slice()
           var html = e.features[0].properties.html
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
           }
-          new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(html)
-            .addTo(this)
+          new mapboxgl.Popup().setLngLat(coordinates).setHTML(html).addTo(this)
         })
-        map.on('mouseenter', 'places', function(e) {
+        map.on('mouseenter', 'places', function (e) {
           this.getCanvas().style.cursor = 'pointer'
         })
-        map.on('mouseleave', 'places', function(e) {
+        map.on('mouseleave', 'places', function (e) {
           this.getCanvas().style.cursor = ''
         })
         map.on('moveend', () => {
@@ -134,13 +131,13 @@ export default {
       var endpoint = '/api?lat=' + center.lat + '&lng=' + center.lng
       const response = this.$axios
         .$get(endpoint)
-        .then(response => {
+        .then((response) => {
           // console.log("response data", response);
           map.removeLayer('places')
           map.removeSource('places')
           map.addSource('places', {
             type: 'geojson',
-            data: response
+            data: response,
           })
           map.addLayer({
             id: 'places',
@@ -148,15 +145,15 @@ export default {
             source: 'places',
             layout: {
               'icon-image': 'restaurant',
-              'icon-allow-overlap': true
-            }
+              'icon-allow-overlap': true,
+            },
           })
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('response error', error)
         })
-    }
-  }
+    },
+  },
 }
 </script>
 <style>
@@ -213,10 +210,10 @@ body {
   position: absolute;
   top: 45px;
   right: 10px;
-  width: 60px;
-  height: 56px;
+  width: 29px;
+  height: 29px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 2px;
   z-index: 1;
   opacity: 0.8;
   background-color: white;
@@ -224,26 +221,26 @@ body {
 .line {
   position: absolute;
   top: 0;
-  right: 8px;
-  width: 45px;
+  right: 4px;
+  width: 21px;
   height: 2px;
   background: #333333;
   text-align: center;
 }
 .line-top {
-  top: 16px;
+  top: 8px;
   transition: 0.4s ease;
 }
 .line-middle {
-  top: 26px;
+  top: 14px;
   transition: 0.4s ease;
 }
 .line-bottom {
-  top: 36px;
+  top: 20px;
   transition: 0.4s ease;
 }
 .rotate-top {
-  transform: translateY(10px) rotate(-45deg);
+  transform: translateY(2px) rotate(-45deg);
   transition: 0.4s ease;
 }
 .rotate-middle {
@@ -273,7 +270,7 @@ body {
   z-index: 30;
   padding: 2rem 1rem;
   position: fixed;
-  width: 300px;
+  width: 200px;
   height: 80rem;
   top: 0;
   right: 0;
@@ -283,7 +280,7 @@ ul {
   padding-top: 40px;
 }
 li {
-  padding: 35px 0;
+  padding: 20px 0;
   list-style: none;
   line-height: 1;
   color: rgb(66, 66, 66);

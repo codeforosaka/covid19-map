@@ -1,6 +1,7 @@
 # jsonを小さくする
 import json
 
+
 class DataJson:
     def __init__(self):
         self.json_file = '../data/data.json'
@@ -13,8 +14,8 @@ class DataJson:
 
         json.dumps(json_load)
         with open('../data/data.json', 'w') as f:
-            json.dump(json_load, f, indent=4,ensure_ascii=False, separators=(',', ': '))
-
+            json.dump(json_load, f, indent=4,
+                      ensure_ascii=False, separators=(',', ': '))
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ from typing import Dict
 
 class DataJson:
     def __init__(self):
-        self.tsv_data = './tool/del_tsv/20221130.tsv'
+        self.tsv_data = './tool/del_tsv/20230204.tsv'
         self.input_json_file = './data/data.json'
         self.output_json_file = './data/data.json'
 
@@ -29,7 +29,8 @@ class DataJson:
                 j += 1
 
             if not del_flg:
-                print('存在しません。')
+                print('存在しません > ' + row['施設名称'].strip() +
+                      ':' + row['施設所在地'].strip())
 
         del_row_asc = sorted(del_row)
 

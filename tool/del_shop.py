@@ -8,7 +8,7 @@ from typing import Dict
 
 class DataJson:
     def __init__(self):
-        self.tsv_data = './tool/del_tsv/20230204.tsv'
+        self.tsv_data = './tool/del_tsv/20230212.tsv'
         self.input_json_file = './data/data.json'
         self.output_json_file = './data/data.json'
 
